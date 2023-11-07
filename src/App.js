@@ -1,12 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
-import getTests from "./controllers/test.controller";
+//import getTests from "./controllers/test.controller";
 import { useEffect } from "react";
 
 function App() {
     useEffect(() => {
-        const response = getTests();
-        console.log("response", response);
+        //const response = getTests();
+        //console.log("response", response);
     }, []);
 
     return (
