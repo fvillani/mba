@@ -1,0 +1,9 @@
+.index-view {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.index-view h1 {
+    text-align: center;
+}
