@@ -4,17 +4,9 @@ import "./IndexSearch.css";
 import axios from "axios";
 
 const IndexSearch = ({ handleChangeTheme = null, handleChangeYear = null }) => {
-    const [optionsTheme, setOptionsTheme] = useState([
-        { value: "saude", name: "Saúde" },
-        { value: "seguranca", name: "Segurança" },
-        { value: "transporte", name: "Transporte" },
-    ]);
+    const [optionsTheme, setOptionsTheme] = useState([]);
 
-    const [optionsYear, setOptionsYear] = useState([
-        { value: 2022, name: "2022" },
-        { value: 2021, name: "2021" },
-        { value: 2023, name: "2023" },
-    ]);
+    const [optionsYear, setOptionsYear] = useState([]);
 
     useEffect(() => {
         const controller = new AbortController();
@@ -31,9 +23,18 @@ const IndexSearch = ({ handleChangeTheme = null, handleChangeYear = null }) => {
 
         Promise.all([requestThemes, requestYears])
             .then((response) => {
-                setOptionsTheme(response[0].data);
+                console.log("response", response);
+                setOptionsTheme(
+                    response[0].data.map((item) => {
+                        return { value: item.theme, name: item.theme };
+                    })
+                );
 
-                setOptionsYear(response[1].data);
+                setOptionsYear(
+                    response[1].data.map((item) => {
+                        return { value: item.year, name: item.year };
+                    })
+                );
             })
             .catch((err) => {
                 console.error(`Erro: ${err.mensage}`);
