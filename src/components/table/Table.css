@@ -1,0 +1,30 @@
+.table {
+    width: 1000px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.table thead {
+    position: sticky;
+    top: 0;
+    background-color: #ccc;
+}
+
+.table th,
+.table td {
+    height: 40px;
+    padding: 0 16px;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table th:first-child,
+.table td:first-child {
+    text-align: left;
+}
+
+.table tbody tr:nth-child(even) {
+    background: #f7f5f5;
+}

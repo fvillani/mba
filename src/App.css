@@ -1,6 +1,7 @@
 .container {
     margin: auto;
     height: 100%;
+    position: relative;
 }
 
 @media (min-width: 1024px) {

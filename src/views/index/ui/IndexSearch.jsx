@@ -55,7 +55,7 @@ const IndexSearch = ({ handleChangeTheme = null, handleChangeYear = null }) => {
     };
 
     return (
-        <div className="search-idnex">
+        <div className="search-index">
             <Select name={"theme"} placeholder={"Escolha o tema"} options={optionsTheme} handleChange={changeTheme} />
 
             <Select name={"year"} placeholder={"Escolha o ano"} options={optionsYear} handleChange={changeYear} />

@@ -6,7 +6,15 @@ const IndexTable = ({ data = [] }) => {
 
     return (
         <div className="index-table">
-            <Table header={headersTable} body={data} />
+            <div className="content">
+                {data.length > 0 ? (
+                    <Table header={headersTable} body={data} />
+                ) : (
+                    <div className="no-data">
+                        Selecione os filtros <span>acima</span> para obter informações
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

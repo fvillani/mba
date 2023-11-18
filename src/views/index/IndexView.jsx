@@ -6,9 +6,9 @@ import IndexSearch from "./ui/IndexSearch";
 import IndexTable from "./ui/IndexTable";
 
 const IndexView = () => {
-    const [theme, setTheme] = useState("saude");
+    const [theme, setTheme] = useState(null);
 
-    const [year, setYear] = useState(2023);
+    const [year, setYear] = useState(null);
 
     const [data, setData] = useState([]);
 
@@ -29,6 +29,8 @@ const IndexView = () => {
                 .catch((err) => {
                     console.error(`Erro: ${err.mensage}`);
                 });
+        } else {
+            setData([]);
         }
 
         return () => controller.abort();

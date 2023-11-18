@@ -1,5 +1,18 @@
 .index-table {
     display: flex;
     justify-content: center;
-    padding: 50px 0;
+    padding: 100px 16px 0 16px;
+}
+
+.index-table .content {
+    max-height: 500px;
+    overflow: auto;
+}
+
+.index-table .no-data {
+    font-size: 18px;
+}
+
+.index-table .no-data span {
+    color: #ff0000;
 }

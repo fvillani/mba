@@ -4,7 +4,7 @@ import TableHeader from "./TableHeader";
 
 const Table = ({ header = [], body = [] }) => {
     return (
-        <table>
+        <table className="table">
             <TableHeader data={header} />
 
             <TableBody data={body} />
