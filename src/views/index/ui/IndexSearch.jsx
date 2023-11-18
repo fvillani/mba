@@ -23,7 +23,6 @@ const IndexSearch = ({ handleChangeTheme = null, handleChangeYear = null }) => {
 
         Promise.all([requestThemes, requestYears])
             .then((response) => {
-                console.log("response", response);
                 setOptionsTheme(
                     response[0].data.map((item) => {
                         return { value: item.theme, name: item.theme };
