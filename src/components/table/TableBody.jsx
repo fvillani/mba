@@ -5,6 +5,7 @@ const TableBody = ({ data = [] }) => {
                 <tr key={item.city_id}>
                     <td>{item.theme}</td>
                     <td>{item.year}</td>
+                    <td>{item.type}</td>
                     <td>{item.value}</td>
                 </tr>
             ))}

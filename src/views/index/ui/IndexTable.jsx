@@ -2,7 +2,7 @@ import Table from "../../../components/table/Table";
 import "./IndexTable.css";
 
 const IndexTable = ({ data = [] }) => {
-    const headersTable = ["Tema", "Ano", "Valor"];
+    const headersTable = ["Tema", "Ano", "Tipo da Ocorrência", "Quantidade"];
 
     return (
         <div className="index-table">
