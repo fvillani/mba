@@ -1,4 +1,4 @@
-const TableBody = ({ data = [] }) => {
+const TableBody = ({ data = [], controls = () => {} }) => {
     return (
         <tbody>
             {data.map((item) => (
@@ -7,6 +7,14 @@ const TableBody = ({ data = [] }) => {
                     <td>{item.year}</td>
                     <td>{item.type}</td>
                     <td>{item.value}</td>
+                    <td
+                        className="control"
+                        onClick={() => {
+                            controls();
+                        }}
+                    >
+                        ...
+                    </td>
                 </tr>
             ))}
         </tbody>

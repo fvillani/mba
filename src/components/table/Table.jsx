@@ -2,12 +2,12 @@ import "./Table.css";
 import TableBody from "./TableBody";
 import TableHeader from "./TableHeader";
 
-const Table = ({ header = [], body = [] }) => {
+const Table = ({ header = [], body = [], controls = () => {} }) => {
     return (
         <table className="table">
             <TableHeader data={header} />
 
-            <TableBody data={body} />
+            <TableBody data={body} controls={controls} />
         </table>
     );
 };
