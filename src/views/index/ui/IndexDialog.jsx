@@ -7,26 +7,13 @@ import Loading from "../../../components/loading/Loading";
 import Error from "../../../components/error/Error";
 
 const IndexDialog = ({ theme = "", type = "", close = () => {} }) => {
-    const [data, setData] = useState([
-        {
-            key: "2020",
-            value: 50,
-        },
-        {
-            key: "2021",
-            value: 60,
-        },
-        {
-            key: "2022",
-            value: 70,
-        },
-    ]);
+    const [data, setData] = useState([]);
 
     const [loading, setLoading] = useState(false);
 
     const [error, setError] = useState("");
 
-    /*useEffect(() => {
+    useEffect(() => {
         const controller = new AbortController();
 
         const signal = controller.signal;
@@ -34,8 +21,10 @@ const IndexDialog = ({ theme = "", type = "", close = () => {} }) => {
         setLoading(true);
 
         if (theme !== "" && type !== "") {
-            const request = axios.get(`https://mba-api.vercel.app/type/${theme}/${type}`, {
+            const request = axios.post(`https://mba-api.vercel.app/type/`, {
                 signal,
+                paramTheme: theme,
+                paramType: type,
             });
 
             request
@@ -55,13 +44,13 @@ const IndexDialog = ({ theme = "", type = "", close = () => {} }) => {
         }
 
         return () => controller.abort();
-    }, [theme, type]);*/
+    }, [theme, type]);
 
     return (
         <Dialog idDialog={"index"}>
             <div className="index-dialog">
                 <div className="header">
-                    <h2>Tema</h2>
+                    {type && <h2>Histórico - {type}</h2>}
 
                     <span className="close" onClick={() => close()}>
                         Fechar
@@ -76,9 +65,18 @@ const IndexDialog = ({ theme = "", type = "", close = () => {} }) => {
                     <div className="chart">
                         <ResponsiveBar
                             data={data}
-                            indexBy="key"
+                            indexBy="year"
                             margin={{ top: 30, right: 50, bottom: 30, left: 50 }}
                             padding={0.5}
+                            axisLeft={{
+                                tickSize: 5,
+                                tickPadding: 5,
+                                tickRotation: 0,
+                                legend: "Quantidade",
+                                legendPosition: "middle",
+                                legendOffset: -40,
+                                truncateTickAt: 0,
+                            }}
                             valueScale={{ type: "linear" }}
                             indexScale={{ type: "band", round: true }}
                             colors={{ scheme: "nivo" }}

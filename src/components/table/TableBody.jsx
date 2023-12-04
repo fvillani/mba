@@ -10,7 +10,7 @@ const TableBody = ({ data = [], controls = () => {} }) => {
                     <td
                         className="control"
                         onClick={() => {
-                            controls();
+                            controls(item.theme, item.type);
                         }}
                     >
                         ...

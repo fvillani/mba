@@ -1,12 +1,21 @@
 import Table from "../../../components/table/Table";
 import "./IndexTable.css";
 import IndexDialog from "./IndexDialog";
+import { useState } from "react";
 
 const IndexTable = ({ data = [] }) => {
     const headersTable = ["Tema", "Ano", "Tipo da Ocorrência", "Quantidade", "Histórico"];
 
-    const handleDialog = () => {
+    const [theme, setTheme] = useState("");
+
+    const [type, setType] = useState("");
+
+    const handleDialog = (paramTheme, paramType) => {
         const dialog = document.querySelector("#index");
+
+        setTheme(paramTheme);
+
+        setType(paramType);
 
         dialog.showModal();
     };
@@ -22,7 +31,7 @@ const IndexTable = ({ data = [] }) => {
             <div className="content">
                 {data.length > 0 ? (
                     <>
-                        <IndexDialog close={handleCloseDialog} />
+                        <IndexDialog theme={theme} type={type} close={handleCloseDialog} />
 
                         <Table header={headersTable} body={data} controls={handleDialog} />
                     </>
